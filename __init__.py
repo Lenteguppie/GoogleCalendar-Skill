@@ -76,7 +76,7 @@ def get_credentials():
     global descAgent
     home_dir = os.path.expanduser('~')
     credential_dir = os.path.join(home_dir, '.credentials')
-    print "checking for cached credentials"
+    print ("checking for cached credentials")
     if not os.path.exists(credential_dir):
         os.makedirs(credential_dir)
 
@@ -91,12 +91,10 @@ def get_credentials():
         logger.info('Loaded credentials from ~ .credentials')
 
     with open(credential_path) as credential_file:
-	data = json.load(credential_file)
+		data = json.load(credential_file)
     descAgent = data['user_agent']
 
     return credentials
-
-
 
 def loggedIn():
     """
@@ -271,7 +269,7 @@ class GoogleCalendar-Skill(MycroftSkill):
     	"""
 	addCalendar_cmd = python_out + " " + third_party_skill + "/addCalendar.py %r" % json.dumps(event_json)
 
-	print os.popen(addCalendar_cmd).read()
+	print (os.popen(addCalendar_cmd).read())
 
 	return msg
 
